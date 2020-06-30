@@ -8,6 +8,10 @@ shell.run("pastebin run p8PJVxC4")
 cont=true
 while cont do
   if shell.run("github clone ejayjock/turtle-"..tName) then
+    if fs.exists("/startup.lua") then
+      shell.run("rm /startup.lua")
+    end
+    shell.run("mv turtle-"..tName.."/startup.lua /startup.lua")
     cont=false
   else
     term.clear()
